@@ -1,0 +1,7 @@
+interface errors {
+    record error {
+        code: u8,
+        message: string,
+        data: option<string>
+    }
+}

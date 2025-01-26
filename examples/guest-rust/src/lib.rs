@@ -18,6 +18,31 @@ impl Guest for MyServer {
     }
 }
 
+use mcp_wasm::server::errors;
+
+// region Resources
+use exports::mcp_wasm::server::resources;
+
+impl resources::Guest for MyServer {
+    fn list() -> Result<Vec<resources::ResourceInfo>, errors::Error> {
+        eprintln!("WASM: List all resources");
+        Ok(vec![
+            resources::ResourceInfo {
+                uri: "file:///logs/app.log".to_string(),
+                name: "Application Logs".to_string(),
+                description: None,
+                mime_type: Some("text/plain".to_string()),
+            }
+        ])
+    }
+
+    fn read(uri: String) -> Result<Vec<resources::Resource>, errors::Error> {
+        eprintln!("WASM: Read resource {uri}");
+        todo!("Implement read for Resource");
+    }
+}
+// endregion
+
 // region Prompts
 use exports::mcp_wasm::server::prompts;
 

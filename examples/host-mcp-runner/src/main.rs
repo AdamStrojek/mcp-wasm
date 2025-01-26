@@ -30,7 +30,10 @@ fn main() -> wasmtime::Result<()> {
     println!("HOST: Module Version: {:?}", srv_ver);
     println!("HOST: Received capabilities: {:?}", cap);
 
-    bindings.call_notify(&mut store, "initialized", None)?;
+    // bindings.call_notify(&mut store, "initialized", None)?;
+
+    let res = bindings.mcp_wasm_server_resources().call_list(&mut store)?;
+    println!("HOST: List all resources: {:?}", res);
 
     let res = bindings.mcp_wasm_server_prompts().call_get_list(&mut store)?;
 

@@ -12,5 +12,4 @@ authors = ["Adam Strojek <adam@strojek.info>"]
 crate-type = ["cdylib"]
 
 [dependencies]
-wasi = "0.14.0+wasi-0.2.3"
 wit-bindgen = "0.38.0"

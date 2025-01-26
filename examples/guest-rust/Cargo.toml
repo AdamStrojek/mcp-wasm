@@ -1,0 +1,16 @@
+# cargo-features = ["per-package-target"]
+
+[package]
+name = "mcp_wasm"
+version = "0.1.0"
+edition = "2021"
+authors = ["Adam Strojek <adam@strojek.info>"]
+# unfortunetly only available in nightly toolchain
+# forced-target = "wasm32-wasip2"
+
+[lib]
+crate-type = ["cdylib"]
+
+[dependencies]
+wasi = "0.14.0+wasi-0.2.3"
+wit-bindgen = "0.38.0"

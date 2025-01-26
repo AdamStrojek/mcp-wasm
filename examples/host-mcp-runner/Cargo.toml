@@ -1,0 +1,9 @@
+[package]
+name = "host-mcp-runner"
+version = "0.1.0"
+edition = "2021"
+authors = ["Adam Strojek <adam@strojek.info>"]
+
+[dependencies]
+wasmtime = "29.0.1"
+wasmtime-wasi = { version = "29.0.1", default-features = false }

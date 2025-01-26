@@ -61,9 +61,13 @@ world server {
     export initialize: func(client-info: version-info, capabilities: list<capability>) -> tuple<version-info, list<capability>>;
 
     /// Notify function, used to send notificaitons by client
+    // TODO: Should be import?
     export notify: func(name: string, params: option<string>);
+
+    export resources;
 
     export prompts;
 
     export tools;
+
 }

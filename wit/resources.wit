@@ -1,0 +1,36 @@
+
+interface resources {
+    record resource-info {
+        /// Unique identifier for the resource
+        uri: string,
+        /// Human-readable name
+        name: string,
+        /// Optional description
+        description: option<string>,
+        /// Optional MIME type
+        mime-type: option<string>
+    }
+
+    /// Content for a resource
+    variant content {
+        /// For text resources
+        text(string),
+        /// For binary resources (base64 encoded)
+        blob(string)
+    }
+
+    record %resource {
+        /// The URI of the resource
+        uri: string,
+        /// Optional MIME type
+        mime-type: option<string>,
+        // Content
+        content: content
+    }
+
+    use errors.{error};
+
+    %list: func() -> result<list<resource-info>, error>;
+
+    read: func(uri: string) -> result<list<%resource>, error>;
+}
